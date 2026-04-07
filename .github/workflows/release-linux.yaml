@@ -6,7 +6,39 @@ name: Build Release Package for Linux
 
 on:
   workflow_dispatch:
+    inputs:
+      projectMSDLref:
+        description: "projectMSDL Git reference (branch, tag or commit hash)"
+        required: true
+        default: "master"
+        type: string
+      projectMref:
+        description: "libprojectM Git reference (branch, tag or commit hash)"
+        required: true
+        default: "master"
+        type: string
+      pocoref:
+        description: "POCO Git reference (branch, tag or commit hash)"
+        required: true
+        default: "poco-1.14.1"
+        type: string
   workflow_call:
+    inputs:
+      projectMSDLref:
+        description: "projectMSDL Git reference (branch, tag or commit hash)"
+        required: false
+        default: "master"
+        type: string
+      projectMref:
+        description: "libprojectM Git reference (branch, tag or commit hash)"
+        required: false
+        default: "master"
+        type: string
+      pocoref:
+        description: "POCO Git reference (branch, tag or commit hash)"
+        required: false
+        default: "poco-1.14.1"
+        type: string
 
 jobs:
   build-deb:
@@ -28,7 +60,7 @@ jobs:
         with:
           repository: pocoproject/poco
           path: poco
-          ref: 'poco-1.14.1'
+          ref: ${{ inputs.pocoref }}
           submodules: recursive
 
       - name: Build Poco
@@ -57,6 +89,7 @@ jobs:
         with:
           repository: projectM-visualizer/projectm
           path: projectm
+          ref: ${{ inputs.projectMref }}
           submodules: recursive
 
       - name: Build/Install libprojectM
@@ -73,6 +106,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: frontend-sdl2
+          ref: ${{ inputs.projectMSDLref }}
           submodules: recursive
 
       - name: Checkout Cream of the Crop preset pack
@@ -130,7 +164,7 @@ jobs:
         with:
           repository: pocoproject/poco
           path: poco
-          ref: 'poco-1.14.1'
+          ref: ${{ inputs.pocoref }}
           submodules: recursive
 
       - name: Build Poco
@@ -159,6 +193,7 @@ jobs:
         with:
           repository: projectM-visualizer/projectm
           path: projectm
+          ref: ${{ inputs.projectMref }}
           submodules: recursive
 
       - name: Build/Install libprojectM
@@ -175,6 +210,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: frontend-sdl2
+          ref: ${{ inputs.projectMSDLref }}
           submodules: recursive
 
       - name: Checkout Cream of the Crop preset pack
