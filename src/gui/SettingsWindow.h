@@ -2,12 +2,15 @@
 
 #include "FileChooser.h"
 
+#include <projectM-4/parameters.h>
+
 #include <Poco/Util/MapConfiguration.h>
 #include <Poco/Util/PropertyFileConfiguration.h>
 
 #include <string>
 
 class AudioCapture;
+class ProjectMWrapper;
 class ProjectMGUI;
 
 class SettingsWindow
@@ -42,6 +45,8 @@ private:
      * @brief Draws the audio settings tab.
      */
     void DrawAudioSettingsTab();
+
+    void DrawTransitionsSettingsTab();
 
     /**
      * @brief Draws the help tab.
@@ -91,6 +96,25 @@ private:
      * @param min Minimum slider value.
      * @param max Maximum slider value.
      */
+    /**
+     * @brief Draws a full sensitivity + Hz-range control group for one audio band.
+     * @param label Display label for the band (e.g. "Bass").
+     * @param band Which band this controls.
+     * @param sensitivityProp Config property name for the sensitivity value.
+     * @param sensitivityDefault Default sensitivity if not set.
+     * @param lowProp Config property name for the low Hz boundary.
+     * @param lowDefault Default low Hz value if not set.
+     * @param highProp Config property name for the high Hz boundary.
+     * @param highDefault Default high Hz value if not set.
+     * @param rangeMin Minimum value for the Hz range slider.
+     * @param rangeMax Maximum value for the Hz range slider.
+     */
+    void DrawBandControls(const char* label, projectm_audio_band band,
+                          const std::string& sensitivityProp, float sensitivityDefault,
+                          const std::string& lowProp, float lowDefault,
+                          const std::string& highProp, float highDefault,
+                          float rangeMin, float rangeMax);
+
     void IntegerSettingVec(const std::string& property1, const std::string& property2,
                            int defaultValue1, int defaultValue2,
                            int min, int max);
@@ -141,6 +165,7 @@ private:
 
     ProjectMGUI& _gui; //!< The GUI subsystem.
     AudioCapture& _audioCapture; //!< The audio capture subsystem.
+    ProjectMWrapper& _projectMWrapper; //!< Reference to the projectM wrapper subsystem.
 
     bool _visible{false}; //!< Window visibility flag.
     bool _changed{false}; //!< true if the user changed any setting since the last save.

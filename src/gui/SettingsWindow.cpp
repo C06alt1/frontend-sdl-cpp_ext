@@ -2,6 +2,7 @@
 
 #include "AudioCapture.h"
 #include "ProjectMSDLApplication.h"
+#include "ProjectMWrapper.h"
 #include "SDLRenderingWindow.h"
 
 #include "ProjectMGUI.h"
@@ -17,6 +18,7 @@
 SettingsWindow::SettingsWindow(ProjectMGUI& gui)
     : _gui(gui)
     , _audioCapture(ProjectMSDLApplication::instance().getSubsystem<AudioCapture>())
+    , _projectMWrapper(ProjectMSDLApplication::instance().getSubsystem<ProjectMWrapper>())
     , _userConfiguration(ProjectMSDLApplication::instance().UserConfiguration())
     , _commandLineConfiguration(ProjectMSDLApplication::instance().CommandLineConfiguration())
 {
@@ -53,6 +55,7 @@ void SettingsWindow::Draw()
             DrawProjectMSettingsTab();
             DrawWindowSettingsTab();
             DrawAudioSettingsTab();
+            DrawTransitionsSettingsTab();
             DrawHelpTab();
 
             ImGui::EndTabBar();
@@ -279,13 +282,124 @@ void SettingsWindow::DrawAudioSettingsTab()
             AudioDeviceSetting();
 
             ImGui::TableNextRow();
-            LabelWithTooltip("Beat Sensitivity", "Beat detection multiplier.");
-            DoubleSetting("projectM.beatSensitivity", 1.0, 0.0, 2.0);
+            LabelWithTooltip("Global Sensitivity", "Sets sensitivity for all three bands at once.");
+            ImGui::TableSetColumnIndex(1);
+            {
+                auto projectM = _projectMWrapper.ProjectM();
+                float globalSens = projectm_get_beat_sensitivity(projectM);
+                if (ImGui::SliderFloat("##globalSens", &globalSens, 0.0f, 2.0f))
+                {
+                    projectm_set_beat_sensitivity(projectM, globalSens);
+                    _userConfiguration->setDouble("projectM.beatSensitivity", globalSens);
+                    _changed = true;
+                }
+            }
+            ResetButton("projectM.beatSensitivity");
+
+            DrawBandControls("Bass", PROJECTM_AUDIO_BAND_BASS,
+                             "projectM.bassSensitivity", 1.0f,
+                             "projectM.bassLowHz", 0.0f, "projectM.bassHighHz", 250.0f,
+                             0.0f, 2000.0f);
+
+            DrawBandControls("Middles", PROJECTM_AUDIO_BAND_MIDDLES,
+                             "projectM.middlesSensitivity", 1.0f,
+                             "projectM.middlesLowHz", 250.0f, "projectM.middlesHighHz", 2500.0f,
+                             0.0f, 8000.0f);
+
+            DrawBandControls("Treble", PROJECTM_AUDIO_BAND_TREBLE,
+                             "projectM.trebleSensitivity", 1.0f,
+                             "projectM.trebleLowHz", 2500.0f, "projectM.trebleHighHz", 22050.0f,
+                             2000.0f, 22050.0f);
 
             ImGui::EndTable();
         }
         ImGui::EndTabItem();
     }
+}
+
+void SettingsWindow::DrawTransitionsSettingsTab()
+{
+    if (ImGui::BeginTabItem("Transitions"))
+    {
+        ImGui::TextWrapped("Uncheck any transition effect to remove it from the random pool used between presets. "
+                           "If everything is unchecked, all transitions are used as a fallback.");
+        ImGui::Separator();
+
+        auto projectM = _projectMWrapper.ProjectM();
+
+        ImGui::Indent(35.0f);
+        for (int i = 0; i < PROJECTM_TRANSITION_COUNT; i++)
+        {
+            auto type = static_cast<projectm_transition_type>(i);
+            bool enabled = projectm_get_transition_enabled(projectM, type);
+            if (ImGui::Checkbox(projectm_get_transition_name(type), &enabled))
+            {
+                projectm_set_transition_enabled(projectM, type, enabled);
+                _userConfiguration->setBool(std::string("projectM.transition.") + projectm_get_transition_name(type) + ".enabled", enabled);
+                _changed = true;
+            }
+        }
+        ImGui::Unindent(35.0f);
+
+        ImGui::EndTabItem();
+    }
+}
+
+void SettingsWindow::DrawBandControls(const char* label, projectm_audio_band band,
+                                      const std::string& sensitivityProp, float sensitivityDefault,
+                                      const std::string& lowProp, float lowDefault,
+                                      const std::string& highProp, float highDefault,
+                                      float rangeMin, float rangeMax)
+{
+    auto projectM = _projectMWrapper.ProjectM();
+
+    ImGui::TableNextRow();
+    ImGui::TableSetColumnIndex(0);
+    ImGui::TextUnformatted(label);
+    ImGui::TableSetColumnIndex(1);
+    {
+        float current = projectm_get_band_current_value(projectM, band);
+        float peak = projectm_get_band_last_peak_value(projectM, band);
+        // Rebased for display: 0 = no beat, positive = beat strength (raw values
+        // are 1.0-baselined internally, matching classic Milkdrop convention -
+        // this is a display-only shift, not a change to what presets receive).
+        ImGui::Text("Live: %.3f   Peak: %.3f", current - 1.0f, peak - 1.0f);
+    }
+
+    ImGui::TableNextRow();
+    LabelWithTooltip("  Sensitivity", "Reactivity multiplier for this band. 0 = flat/silent, regardless of playback volume.");
+    ImGui::TableSetColumnIndex(1);
+    {
+        float sensitivity = static_cast<float>(_userConfiguration->getDouble(sensitivityProp, sensitivityDefault));
+        if (ImGui::SliderFloat(std::string("##sens_" + sensitivityProp).c_str(), &sensitivity, 0.0f, 2.0f))
+        {
+            projectm_set_band_sensitivity(projectM, band, sensitivity);
+            _userConfiguration->setDouble(sensitivityProp, sensitivity);
+            _changed = true;
+        }
+    }
+    ResetButton(sensitivityProp);
+
+    ImGui::TableNextRow();
+    LabelWithTooltip("  Range (Hz)", "Frequency range summed for this band.");
+    ImGui::TableSetColumnIndex(1);
+    {
+        float range[2] = {
+            static_cast<float>(_userConfiguration->getDouble(lowProp, lowDefault)),
+            static_cast<float>(_userConfiguration->getDouble(highProp, highDefault))};
+        if (ImGui::SliderFloat2(std::string("##range_" + lowProp).c_str(), range, rangeMin, rangeMax, "%.0f Hz"))
+        {
+            if (range[0] >= range[1])
+            {
+                range[1] = range[0] + 10.0f;
+            }
+            projectm_set_band_range(projectM, band, range[0], range[1]);
+            _userConfiguration->setDouble(lowProp, range[0]);
+            _userConfiguration->setDouble(highProp, range[1]);
+            _changed = true;
+        }
+    }
+    ResetButton(lowProp, highProp);
 }
 
 void SettingsWindow::DrawHelpTab() const

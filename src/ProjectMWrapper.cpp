@@ -65,6 +65,30 @@ void ProjectMWrapper::initialize(Poco::Util::Application& app)
         projectm_set_hard_cut_sensitivity(_projectM, static_cast<float>(_projectMConfigView->getDouble("hardCutSensitivity", 1.0)));
         projectm_set_beat_sensitivity(_projectM, static_cast<float>(_projectMConfigView->getDouble("beatSensitivity", 1.0)));
 
+        // Per-band EQ settings
+        projectm_set_band_sensitivity(_projectM, PROJECTM_AUDIO_BAND_BASS, static_cast<float>(_projectMConfigView->getDouble("bassSensitivity", 1.0)));
+        projectm_set_band_range(_projectM, PROJECTM_AUDIO_BAND_BASS,
+                                 static_cast<float>(_projectMConfigView->getDouble("bassLowHz", 100.0)),
+                                 static_cast<float>(_projectMConfigView->getDouble("bassHighHz", 280.0)));
+
+        projectm_set_band_sensitivity(_projectM, PROJECTM_AUDIO_BAND_MIDDLES, static_cast<float>(_projectMConfigView->getDouble("middlesSensitivity", 1.0)));
+        projectm_set_band_range(_projectM, PROJECTM_AUDIO_BAND_MIDDLES,
+                                 static_cast<float>(_projectMConfigView->getDouble("middlesLowHz", 280.0)),
+                                 static_cast<float>(_projectMConfigView->getDouble("middlesHighHz", 4000.0)));
+
+        projectm_set_band_sensitivity(_projectM, PROJECTM_AUDIO_BAND_TREBLE, static_cast<float>(_projectMConfigView->getDouble("trebleSensitivity", 1.0)));
+        projectm_set_band_range(_projectM, PROJECTM_AUDIO_BAND_TREBLE,
+                                 static_cast<float>(_projectMConfigView->getDouble("trebleLowHz", 4000.0)),
+                                 static_cast<float>(_projectMConfigView->getDouble("trebleHighHz", 16000.0)));
+
+        // Transition enable/disable states
+        for (int i = 0; i < PROJECTM_TRANSITION_COUNT; i++)
+        {
+            auto type = static_cast<projectm_transition_type>(i);
+            std::string key = std::string("transition.") + projectm_get_transition_name(type) + ".enabled";
+            projectm_set_transition_enabled(_projectM, type, _projectMConfigView->getBool(key, true));
+        }
+
         if (!texturePaths.empty())
         {
             std::vector<const char*> texturePathList;
@@ -337,6 +361,54 @@ void ProjectMWrapper::OnConfigurationPropertyRemoved(const std::string& key)
     if (key == "projectM.hardCutSensitivity")
     {
         projectm_set_hard_cut_sensitivity(_projectM, static_cast<float>(_projectMConfigView->getDouble("hardCutSensitivity", 1.0)));
+    }
+
+    if (key == "projectM.beatSensitivity")
+    {
+        projectm_set_beat_sensitivity(_projectM, static_cast<float>(_projectMConfigView->getDouble("beatSensitivity", 1.0)));
+    }
+
+    if (key == "projectM.bassSensitivity")
+    {
+        projectm_set_band_sensitivity(_projectM, PROJECTM_AUDIO_BAND_BASS, static_cast<float>(_projectMConfigView->getDouble("bassSensitivity", 1.0)));
+    }
+    if (key == "projectM.bassLowHz" || key == "projectM.bassHighHz")
+    {
+        projectm_set_band_range(_projectM, PROJECTM_AUDIO_BAND_BASS,
+                                 static_cast<float>(_projectMConfigView->getDouble("bassLowHz", 100.0)),
+                                 static_cast<float>(_projectMConfigView->getDouble("bassHighHz", 280.0)));
+    }
+
+    if (key == "projectM.middlesSensitivity")
+    {
+        projectm_set_band_sensitivity(_projectM, PROJECTM_AUDIO_BAND_MIDDLES, static_cast<float>(_projectMConfigView->getDouble("middlesSensitivity", 1.0)));
+    }
+    if (key == "projectM.middlesLowHz" || key == "projectM.middlesHighHz")
+    {
+        projectm_set_band_range(_projectM, PROJECTM_AUDIO_BAND_MIDDLES,
+                                 static_cast<float>(_projectMConfigView->getDouble("middlesLowHz", 280.0)),
+                                 static_cast<float>(_projectMConfigView->getDouble("middlesHighHz", 4000.0)));
+    }
+
+    if (key == "projectM.trebleSensitivity")
+    {
+        projectm_set_band_sensitivity(_projectM, PROJECTM_AUDIO_BAND_TREBLE, static_cast<float>(_projectMConfigView->getDouble("trebleSensitivity", 1.0)));
+    }
+    if (key == "projectM.trebleLowHz" || key == "projectM.trebleHighHz")
+    {
+        projectm_set_band_range(_projectM, PROJECTM_AUDIO_BAND_TREBLE,
+                                 static_cast<float>(_projectMConfigView->getDouble("trebleLowHz", 4000.0)),
+                                 static_cast<float>(_projectMConfigView->getDouble("trebleHighHz", 16000.0)));
+    }
+
+    for (int i = 0; i < PROJECTM_TRANSITION_COUNT; i++)
+    {
+        auto type = static_cast<projectm_transition_type>(i);
+        std::string transitionKey = std::string("projectM.transition.") + projectm_get_transition_name(type) + ".enabled";
+        if (key == transitionKey)
+        {
+            projectm_set_transition_enabled(_projectM, type, _projectMConfigView->getBool(std::string("transition.") + projectm_get_transition_name(type) + ".enabled", true));
+        }
     }
 
     if (key == "projectM.meshX" || key == "projectM.meshY")

@@ -1,0 +1,482 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4B8EDA03-0C0D-3F56-85AF-383F55EB2792}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <VcpkgEnabled>false</VcpkgEnabled>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>projectMSDL</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v145</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Coding\frontend-sdl-cpp-git\cmake-build\src\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">projectMSDL.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">projectMSDL</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Coding\frontend-sdl-cpp-git\cmake-build\src\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">projectMSDL.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">projectMSDL</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Coding\frontend-sdl-cpp-git\cmake-build\src\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">projectMSDL.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">projectMSDL</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Coding\frontend-sdl-cpp-git\cmake-build\src\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">projectMSDL.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">projectMSDL</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Coding\frontend-sdl-cpp-git\src;D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "D:/Coding/frontend-sdl-cpp-git/cmake-build/vcpkg_installed/x64-windows/include" /external:I "D:/Coding/frontend-sdl-cpp-git/cmake-build/vcpkg_installed/x64-windows/include/SDL2" /external:I "D:/Coding/projectm-install/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;AUDIO_IMPL_HEADER="AudioCaptureImpl_WASAPI.h";PROJECTMSDL_VERSION="2.0.0";POCO_UNBUNDLED;POCO_CMAKE;_DEBUG;POCO_ENABLE_CPP14;POCO_ENABLE_CPP11;POCO_OS_FAMILY_WINDOWS;UNICODE;_UNICODE;IMGUI_ENABLE_FREETYPE;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;AUDIO_IMPL_HEADER=\"AudioCaptureImpl_WASAPI.h\";PROJECTMSDL_VERSION=\"2.0.0\";POCO_UNBUNDLED;POCO_CMAKE;POCO_ENABLE_CPP14;POCO_ENABLE_CPP11;POCO_OS_FAMILY_WINDOWS;UNICODE;_UNICODE;IMGUI_ENABLE_FREETYPE;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Coding\frontend-sdl-cpp-git\src;D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui\backends;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include\SDL2;D:\Coding\projectm-install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Coding\frontend-sdl-cpp-git\src;D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui\backends;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include\SDL2;D:\Coding\projectm-install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+D:\Coding\vcpkg\vcpkg\vcpkg.exe z-applocal --target-binary=D:/Coding/frontend-sdl-cpp-git/cmake-build/src/Debug/projectMSDL.exe --installed-bin-dir=D:/Coding/frontend-sdl-cpp-git/cmake-build/vcpkg_installed/x64-windows/debug/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>gui\Debug\ProjectMSDL-GUI.lib;notifications\Debug\ProjectMSDL-Notifications.lib;D:\Coding\projectm-install\lib\projectM-4-playlist.lib;..\vcpkg_installed\x64-windows\debug\lib\PocoUtild.lib;..\vcpkg_installed\x64-windows\debug\lib\manual-link\SDL2maind.lib;opengl32.lib;..\vcpkg_installed\x64-windows\debug\lib\PocoXMLd.lib;..\vcpkg_installed\x64-windows\debug\lib\libexpatd.lib;..\vcpkg_installed\x64-windows\debug\lib\PocoJSONd.lib;..\Debug\ImGui.lib;..\vcpkg_installed\x64-windows\debug\lib\SDL2d.lib;..\vcpkg_installed\x64-windows\debug\lib\freetyped.lib;..\vcpkg_installed\x64-windows\debug\lib\PocoFoundationd.lib;..\vcpkg_installed\x64-windows\debug\lib\pcre2-8d.lib;..\vcpkg_installed\x64-windows\debug\lib\zlibd.lib;..\vcpkg_installed\x64-windows\debug\lib\utf8proc.lib;iphlpapi.lib;D:\Coding\projectm-install\lib\projectM-4.lib;opengl32.lib;shell32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>D:/Coding/frontend-sdl-cpp-git/cmake-build/src/Debug/projectMSDL.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>D:/Coding/frontend-sdl-cpp-git/cmake-build/src/Debug/projectMSDL.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Coding\frontend-sdl-cpp-git\src;D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "D:/Coding/frontend-sdl-cpp-git/cmake-build/vcpkg_installed/x64-windows/include" /external:I "D:/Coding/frontend-sdl-cpp-git/cmake-build/vcpkg_installed/x64-windows/include/SDL2" /external:I "D:/Coding/projectm-install/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AUDIO_IMPL_HEADER="AudioCaptureImpl_WASAPI.h";PROJECTMSDL_VERSION="2.0.0";POCO_UNBUNDLED;POCO_CMAKE;POCO_ENABLE_CPP14;POCO_ENABLE_CPP11;POCO_OS_FAMILY_WINDOWS;UNICODE;_UNICODE;IMGUI_ENABLE_FREETYPE;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AUDIO_IMPL_HEADER=\"AudioCaptureImpl_WASAPI.h\";PROJECTMSDL_VERSION=\"2.0.0\";POCO_UNBUNDLED;POCO_CMAKE;POCO_ENABLE_CPP14;POCO_ENABLE_CPP11;POCO_OS_FAMILY_WINDOWS;UNICODE;_UNICODE;IMGUI_ENABLE_FREETYPE;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Coding\frontend-sdl-cpp-git\src;D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui\backends;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include\SDL2;D:\Coding\projectm-install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Coding\frontend-sdl-cpp-git\src;D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui\backends;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include\SDL2;D:\Coding\projectm-install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+D:\Coding\vcpkg\vcpkg\vcpkg.exe z-applocal --target-binary=D:/Coding/frontend-sdl-cpp-git/cmake-build/src/Release/projectMSDL.exe --installed-bin-dir=D:/Coding/frontend-sdl-cpp-git/cmake-build/vcpkg_installed/x64-windows/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>gui\Release\ProjectMSDL-GUI.lib;notifications\Release\ProjectMSDL-Notifications.lib;D:\Coding\projectm-install\lib\projectM-4-playlist.lib;..\vcpkg_installed\x64-windows\lib\PocoUtil.lib;..\vcpkg_installed\x64-windows\lib\manual-link\SDL2main.lib;opengl32.lib;..\vcpkg_installed\x64-windows\lib\PocoXML.lib;..\vcpkg_installed\x64-windows\lib\libexpat.lib;..\vcpkg_installed\x64-windows\lib\PocoJSON.lib;..\Release\ImGui.lib;..\vcpkg_installed\x64-windows\lib\SDL2.lib;..\vcpkg_installed\x64-windows\lib\freetype.lib;..\vcpkg_installed\x64-windows\lib\PocoFoundation.lib;..\vcpkg_installed\x64-windows\lib\pcre2-8.lib;..\vcpkg_installed\x64-windows\lib\zlib.lib;..\vcpkg_installed\x64-windows\lib\utf8proc.lib;iphlpapi.lib;D:\Coding\projectm-install\lib\projectM-4.lib;opengl32.lib;shell32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>D:/Coding/frontend-sdl-cpp-git/cmake-build/src/Release/projectMSDL.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>D:/Coding/frontend-sdl-cpp-git/cmake-build/src/Release/projectMSDL.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Coding\frontend-sdl-cpp-git\src;D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "D:/Coding/frontend-sdl-cpp-git/cmake-build/vcpkg_installed/x64-windows/include" /external:I "D:/Coding/frontend-sdl-cpp-git/cmake-build/vcpkg_installed/x64-windows/include/SDL2" /external:I "D:/Coding/projectm-install/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AUDIO_IMPL_HEADER="AudioCaptureImpl_WASAPI.h";PROJECTMSDL_VERSION="2.0.0";POCO_UNBUNDLED;POCO_CMAKE;POCO_ENABLE_CPP14;POCO_ENABLE_CPP11;POCO_OS_FAMILY_WINDOWS;UNICODE;_UNICODE;IMGUI_ENABLE_FREETYPE;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AUDIO_IMPL_HEADER=\"AudioCaptureImpl_WASAPI.h\";PROJECTMSDL_VERSION=\"2.0.0\";POCO_UNBUNDLED;POCO_CMAKE;POCO_ENABLE_CPP14;POCO_ENABLE_CPP11;POCO_OS_FAMILY_WINDOWS;UNICODE;_UNICODE;IMGUI_ENABLE_FREETYPE;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Coding\frontend-sdl-cpp-git\src;D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui\backends;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include\SDL2;D:\Coding\projectm-install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Coding\frontend-sdl-cpp-git\src;D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui\backends;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include\SDL2;D:\Coding\projectm-install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+D:\Coding\vcpkg\vcpkg\vcpkg.exe z-applocal --target-binary=D:/Coding/frontend-sdl-cpp-git/cmake-build/src/MinSizeRel/projectMSDL.exe --installed-bin-dir=D:/Coding/frontend-sdl-cpp-git/cmake-build/vcpkg_installed/x64-windows/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>gui\MinSizeRel\ProjectMSDL-GUI.lib;notifications\MinSizeRel\ProjectMSDL-Notifications.lib;D:\Coding\projectm-install\lib\projectM-4-playlist.lib;..\vcpkg_installed\x64-windows\lib\PocoUtil.lib;..\vcpkg_installed\x64-windows\lib\manual-link\SDL2main.lib;opengl32.lib;..\vcpkg_installed\x64-windows\lib\PocoXML.lib;..\vcpkg_installed\x64-windows\lib\libexpat.lib;..\vcpkg_installed\x64-windows\lib\PocoJSON.lib;..\MinSizeRel\ImGui.lib;..\vcpkg_installed\x64-windows\lib\SDL2.lib;..\vcpkg_installed\x64-windows\lib\freetype.lib;..\vcpkg_installed\x64-windows\lib\PocoFoundation.lib;..\vcpkg_installed\x64-windows\lib\pcre2-8.lib;..\vcpkg_installed\x64-windows\lib\zlib.lib;..\vcpkg_installed\x64-windows\lib\utf8proc.lib;iphlpapi.lib;D:\Coding\projectm-install\lib\projectM-4.lib;opengl32.lib;shell32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>D:/Coding/frontend-sdl-cpp-git/cmake-build/src/MinSizeRel/projectMSDL.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>D:/Coding/frontend-sdl-cpp-git/cmake-build/src/MinSizeRel/projectMSDL.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\Coding\frontend-sdl-cpp-git\src;D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "D:/Coding/frontend-sdl-cpp-git/cmake-build/vcpkg_installed/x64-windows/include" /external:I "D:/Coding/frontend-sdl-cpp-git/cmake-build/vcpkg_installed/x64-windows/include/SDL2" /external:I "D:/Coding/projectm-install/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AUDIO_IMPL_HEADER="AudioCaptureImpl_WASAPI.h";PROJECTMSDL_VERSION="2.0.0";POCO_UNBUNDLED;POCO_CMAKE;POCO_ENABLE_CPP14;POCO_ENABLE_CPP11;POCO_OS_FAMILY_WINDOWS;UNICODE;_UNICODE;IMGUI_ENABLE_FREETYPE;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;AUDIO_IMPL_HEADER=\"AudioCaptureImpl_WASAPI.h\";PROJECTMSDL_VERSION=\"2.0.0\";POCO_UNBUNDLED;POCO_CMAKE;POCO_ENABLE_CPP14;POCO_ENABLE_CPP11;POCO_OS_FAMILY_WINDOWS;UNICODE;_UNICODE;IMGUI_ENABLE_FREETYPE;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\Coding\frontend-sdl-cpp-git\src;D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui\backends;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include\SDL2;D:\Coding\projectm-install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\Coding\frontend-sdl-cpp-git\src;D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui;D:\Coding\frontend-sdl-cpp-git\vendor\imgui\backends;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include;D:\Coding\frontend-sdl-cpp-git\cmake-build\vcpkg_installed\x64-windows\include\SDL2;D:\Coding\projectm-install\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+D:\Coding\vcpkg\vcpkg\vcpkg.exe z-applocal --target-binary=D:/Coding/frontend-sdl-cpp-git/cmake-build/src/RelWithDebInfo/projectMSDL.exe --installed-bin-dir=D:/Coding/frontend-sdl-cpp-git/cmake-build/vcpkg_installed/x64-windows/bin
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>gui\RelWithDebInfo\ProjectMSDL-GUI.lib;notifications\RelWithDebInfo\ProjectMSDL-Notifications.lib;D:\Coding\projectm-install\lib\projectM-4-playlist.lib;..\vcpkg_installed\x64-windows\lib\PocoUtil.lib;..\vcpkg_installed\x64-windows\lib\manual-link\SDL2main.lib;opengl32.lib;..\vcpkg_installed\x64-windows\lib\PocoXML.lib;..\vcpkg_installed\x64-windows\lib\libexpat.lib;..\vcpkg_installed\x64-windows\lib\PocoJSON.lib;..\RelWithDebInfo\ImGui.lib;..\vcpkg_installed\x64-windows\lib\SDL2.lib;..\vcpkg_installed\x64-windows\lib\freetype.lib;..\vcpkg_installed\x64-windows\lib\PocoFoundation.lib;..\vcpkg_installed\x64-windows\lib\pcre2-8.lib;..\vcpkg_installed\x64-windows\lib\zlib.lib;..\vcpkg_installed\x64-windows\lib\utf8proc.lib;iphlpapi.lib;D:\Coding\projectm-install\lib\projectM-4.lib;opengl32.lib;shell32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>D:/Coding/frontend-sdl-cpp-git/cmake-build/src/RelWithDebInfo/projectMSDL.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>D:/Coding/frontend-sdl-cpp-git/cmake-build/src/RelWithDebInfo/projectMSDL.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+    <Manifest>
+      <EnableDpiAwareness>PerMonitorHighDPIAware</EnableDpiAwareness>
+    </Manifest>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Coding\frontend-sdl-cpp-git\src\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Coding/frontend-sdl-cpp-git/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Coding/frontend-sdl-cpp-git -BD:/Coding/frontend-sdl-cpp-git/cmake-build --check-stamp-file D:/Coding/frontend-sdl-cpp-git/cmake-build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Coding\frontend-sdl-cpp-git\src\resources\projectMSDL.properties.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Coding\frontend-sdl-cpp-git\cmake-build\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Coding/frontend-sdl-cpp-git/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Coding/frontend-sdl-cpp-git -BD:/Coding/frontend-sdl-cpp-git/cmake-build --check-stamp-file D:/Coding/frontend-sdl-cpp-git/cmake-build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Coding\frontend-sdl-cpp-git\src\resources\projectMSDL.properties.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Coding\frontend-sdl-cpp-git\cmake-build\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Coding/frontend-sdl-cpp-git/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Coding/frontend-sdl-cpp-git -BD:/Coding/frontend-sdl-cpp-git/cmake-build --check-stamp-file D:/Coding/frontend-sdl-cpp-git/cmake-build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Coding\frontend-sdl-cpp-git\src\resources\projectMSDL.properties.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Coding\frontend-sdl-cpp-git\cmake-build\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Coding/frontend-sdl-cpp-git/src/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SD:/Coding/frontend-sdl-cpp-git -BD:/Coding/frontend-sdl-cpp-git/cmake-build --check-stamp-file D:/Coding/frontend-sdl-cpp-git/cmake-build/src/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Coding\frontend-sdl-cpp-git\src\resources\projectMSDL.properties.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Coding\frontend-sdl-cpp-git\cmake-build\src\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\AudioCapture.cpp" />
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\AudioCapture.h" />
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\FPSLimiter.cpp" />
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\FPSLimiter.h" />
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\ProjectMSDLApplication.cpp">
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(PreprocessorDefinitions);PROJECTMSDL_CONFIG_LOCATION=""</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(PreprocessorDefinitions);PROJECTMSDL_CONFIG_LOCATION=""</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(PreprocessorDefinitions);PROJECTMSDL_CONFIG_LOCATION=""</PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(PreprocessorDefinitions);PROJECTMSDL_CONFIG_LOCATION=""</PreprocessorDefinitions>
+    </ClCompile>
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\ProjectMSDLApplication.h" />
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\ProjectMWrapper.cpp" />
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\ProjectMWrapper.h" />
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\RenderLoop.cpp" />
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\RenderLoop.h" />
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\SDLRenderingWindow.cpp" />
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\SDLRenderingWindow.h" />
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\main.cpp" />
+    <ResourceCompile Include="D:\Coding\frontend-sdl-cpp-git\src\projectMSDL.rc" />
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\AudioCaptureImpl_WASAPI.h" />
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\AudioCaptureImpl_WASAPI.cpp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="D:\Coding\frontend-sdl-cpp-git\cmake-build\ZERO_CHECK.vcxproj">
+      <Project>{77B2E215-D71F-300B-9E6B-6B1C5EC0030C}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="D:\Coding\frontend-sdl-cpp-git\cmake-build\ImGui.vcxproj">
+      <Project>{B4634E34-A975-3548-950E-1048D322DD84}</Project>
+      <Name>ImGui</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui\ProjectMSDL-GUI.vcxproj">
+      <Project>{D4E96EFD-71E4-36D1-86BF-8CBE0950F64F}</Project>
+      <Name>ProjectMSDL-GUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\Coding\frontend-sdl-cpp-git\cmake-build\src\notifications\ProjectMSDL-Notifications.vcxproj">
+      <Project>{78134AF8-533E-3A3E-8302-8F81E9E620D4}</Project>
+      <Name>ProjectMSDL-Notifications</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

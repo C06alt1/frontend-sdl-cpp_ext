@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="18.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\gui\AboutWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\gui\FileChooser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\gui\HelpWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\gui\MainMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\gui\PresetSelection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\gui\ProjectMGUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\gui\SettingsWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\gui\SystemBrowser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D:\Coding\frontend-sdl-cpp-git\src\gui\ToastMessage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui\AnonymousProFont.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\cmake-build\src\gui\LiberationSansFont.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\gui\AboutWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\gui\FileChooser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\gui\HelpWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\gui\MainMenu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\gui\PresetSelection.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\gui\ProjectMGUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\gui\SettingsWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\gui\SystemBrowser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Coding\frontend-sdl-cpp-git\src\gui\ToastMessage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Coding\frontend-sdl-cpp-git\src\resources\AnonymousPro-Regular.ttf" />
+    <CustomBuild Include="D:\Coding\frontend-sdl-cpp-git\src\resources\LiberationSans-Regular.ttf" />
+    <CustomBuild Include="D:\Coding\frontend-sdl-cpp-git\src\gui\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{E7C1E041-1036-3BD9-94C6-FA43F3AC4E5A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{AB79F8C9-2CA0-3575-A90C-4DC344F62FAA}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
